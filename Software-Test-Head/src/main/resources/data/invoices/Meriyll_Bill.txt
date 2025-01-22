@@ -1,0 +1,8 @@
+ISBN: 222
+Title: Meriyll
+Author: Viktor Canosinaj
+Price: 1000.0
+Quantity: 2
+Total: 2000.0
+Seller:admin
+Date: Fri Feb 17 17:40:01 CET 2023

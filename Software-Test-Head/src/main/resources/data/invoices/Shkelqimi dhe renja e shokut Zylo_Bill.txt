@@ -1,0 +1,8 @@
+ISBN: 333
+Title: Shkelqimi dhe renja e shokut Zylo
+Author: Dritero  Agolli
+Price: 1500.0
+Quantity: 2
+Total: 3000.0
+Seller:admin
+Date: Fri Feb 17 17:42:50 CET 2023

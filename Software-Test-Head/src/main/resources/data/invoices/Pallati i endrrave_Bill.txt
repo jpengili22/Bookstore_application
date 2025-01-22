@@ -1,0 +1,8 @@
+ISBN: 444
+Title: Pallati i endrrave
+Author: Ismail Kadare
+Price: 1000.0
+Quantity: 2
+Total: 2000.0
+Seller:admin
+Date: Thu Feb 02 17:51:49 CET 2023
