@@ -4,9 +4,12 @@ import application.bookstore.models.Author;
 import application.bookstore.models.Book;
 import application.bookstore.views.BookView;
 import javafx.scene.paint.Color;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class BookController {
     private final BookView bookView;
+    private final ExecutorService executor = Executors.newFixedThreadPool(2);
 
     public BookController(BookView bookView) {
         this.bookView = bookView;
@@ -14,7 +17,7 @@ public class BookController {
     }
 
     private void setSaveListener() {
-        bookView.getSaveBtn().setOnAction(e -> {
+        bookView.getSaveBtn().setOnAction(e -> executor.submit(() -> {
             String isbn = bookView.getIsbnField().getText();
             String title = bookView.getTitleField().getText();
             float purchasedPrice = Float.parseFloat(bookView.getPurchasedPriceField().getText());
@@ -31,7 +34,7 @@ public class BookController {
                 bookView.getResultLabel().setText("Book creation failed");
                 bookView.getResultLabel().setTextFill(Color.DARKRED);
             }
-        });
+        }));
     }
 
     private void resetFields() {
@@ -39,5 +42,10 @@ public class BookController {
         bookView.getTitleField().setText("");
         bookView.getPurchasedPriceField().setText("");
         bookView.getSellingPriceField().setText("");
+    }
+
+    public void shutdown() {
+        executor.shutdown();
+        System.out.println("BookController threads shut down.");
     }
 }
